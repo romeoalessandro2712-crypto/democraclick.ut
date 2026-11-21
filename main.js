@@ -410,11 +410,15 @@ async function boot() {
   };
   collected(); editorial();
   document.addEventListener('dc:lang', () => { collected(); editorial(); document.title = S.world === 'home' ? t('meta.title') : `${t(`nav.${S.world}`)} · DemocraClick`; Object.values(UIS).forEach((u) => u.rerender?.()); announce(t('world.now', { name: t(`nav.${S.world}`) })); });
-  // light version: same content and navigation, no 3D (faster, calmer, kinder to old phones)
+  // light version: same content and navigation, no 3D (faster, calmer, kinder to old phones).
+  // The button starts hidden: it appears only where the 3D actually runs, or where the visitor
+  // chose the light version (so they can switch back). Devices without 3D never see it.
   const lite = $('#lite-toggle');
+  let liteChosen = false; try { liteChosen = localStorage.getItem('dc-3d') === 'off'; } catch (e) { /* ignore */ }
   if (lite) {
-    let off = false; try { off = localStorage.getItem('dc-3d') === 'off'; } catch (e) { /* ignore */ }
+    const off = liteChosen;
     lite.setAttribute('aria-pressed', String(off));
+    if (off) lite.hidden = false;
     lite.addEventListener('click', () => {
       try { if (off) localStorage.removeItem('dc-3d'); else localStorage.setItem('dc-3d', 'off'); } catch (e) { /* ignore */ }
       location.reload();
@@ -454,7 +458,7 @@ async function boot() {
   // ── progressive enhancement: the 3D layer ──
   if (!canRun3D()) {
     html.classList.add('no-webgl');
-    $('#fallback-note')?.removeAttribute('hidden');
+    if (!liteChosen) $('#fallback-note')?.removeAttribute('hidden'); // "your device does not support 3D" only when true
     clearTimeout(loaderCap); hideLoader();
     return;
   }
@@ -469,6 +473,7 @@ async function boot() {
       orbCount: PARTITI.length, labelsRoot: $('#labels'), getLang,
       views: { home: homeView, partiti: partitiView, dati: datiView, fonti: fontiView, metodo: metodoView, community: communityView, sondaggi: sondaggiView },
     });
+    if (lite) lite.hidden = false; // 3D is running here, so offering the light version makes sense
   } catch (err) {
     console.warn('[DemocraClick] 3D unavailable, staying in 2D:', err);
     html.classList.add('no-webgl');

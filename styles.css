@@ -952,3 +952,4 @@ html:not(.js) .topic { display: none; }
   .pl-ic { width: 17px; height: 17px; font-size: 9.5px; }
 }
 html:not(.js) .pledges a[data-open-registro] { display: none; }
+.ctl[hidden] { display: none !important; }
