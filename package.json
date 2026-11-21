@@ -1,0 +1,21 @@
+{
+  "name": "democraclick-agora",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "DemocraClick: L'Agorà — 3D, click-driven civic site.",
+  "scripts": {
+    "build": "node tools/validate.mjs && node build.mjs",
+    "serve": "node tools/serve.mjs dist/site 8080",
+    "validate": "node tools/validate.mjs"
+  },
+  "dependencies": {
+    "three": "0.160.0",
+    "gsap": "3.12.5",
+    "@fontsource-variable/fraunces": "5.0.21",
+    "@fontsource-variable/inter-tight": "5.0.20"
+  },
+  "devDependencies": {
+    "esbuild": "0.20.2"
+  }
+}

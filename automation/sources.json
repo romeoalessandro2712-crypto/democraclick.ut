@@ -1,0 +1,20 @@
+{
+  "_note": "Approved sources for the daily automatic update (approved by the site owner on 21/11/2026). A new fact may enter the site only if it is found on at least one of these domains. Party programmes: only the party's own official site or documents, or an approved outlet reporting them. Sources already on the site before 21/11/2026 (other outlets) are kept as long as they still support the statement; new ones must come from this list.",
+  "institutions": ["camera.it", "temi.camera.it", "documenti.camera.it", "senato.it", "governo.it", "gazzettaufficiale.it", "istat.it", "interno.gov.it", "dait.interno.gov.it", "sondaggipoliticoelettorali.it", "quirinale.it", "agcom.it"],
+  "agencies": ["ansa.it", "agi.it", "adnkronos.com"],
+  "polls": ["youtrend.it", "agi.it", "sondaggipoliticoelettorali.it"],
+  "factcheck": ["pagellapolitica.it"],
+  "parties": {
+    "fdi": ["fratelli-italia.it"],
+    "pd": ["partitodemocratico.it"],
+    "m5s": ["movimento5stelle.eu"],
+    "fi": ["forzaitalia.it"],
+    "lega": ["leganord.org", "lega-online.it"],
+    "avs": ["alleanzaverdisinistra.it"],
+    "azione": ["azione.it"],
+    "iv": ["italiaviva.it"],
+    "piueuropa": ["piueuropa.eu"],
+    "fn": ["futuronazionale.it"]
+  },
+  "_partyDomainsNote": "Party domains were written from the parties' known web addresses and must be checked once by a person (or by the first automatic run, which verifies each one is reachable and belongs to the party) before being trusted."
+}

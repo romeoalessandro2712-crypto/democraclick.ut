@@ -1,0 +1,15 @@
+# Safety net: every push (including the daily automatic one) is validated and built.
+# If the data check fails, this run fails and the hosting build (which runs the same check) stops too.
+name: check
+on: [push, pull_request]
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with: { name: site, path: dist/site }
