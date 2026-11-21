@@ -45,9 +45,19 @@ export function partitiUI({ root, parties, themes, t, getLang, announce, onChang
     }).join('');
   }
 
+  // numbered citation links: every statement points to the source(s) it comes from
+  function cite(p, src) {
+    if (!src || !src.length) return '';
+    return `<span class="cites">${src.map((i) => {
+      const f = p.sources[i];
+      return f ? `<a class="cite" href="${esc(f.url)}" target="_blank" rel="noopener noreferrer" title="${esc(f.label)}" aria-label="${esc(t('partiti.cite.aria', { n: i + 1, l: f.label }))}">${i + 1}</a>` : '';
+    }).join('')}</span>`;
+  }
+
   function themeValue(p, th) {
-    const v = L(p.themes[th.id]);
-    return v ? `<p>${esc(v)}</p>` : `<p class="none">${esc(t('partiti.theme.none'))}</p>`;
+    const o = p.themes[th.id];
+    const v = L(o);
+    return v ? `<p>${esc(v)} ${cite(p, o.src)}</p>` : `<p class="none">${esc(t('partiti.theme.none'))}</p>`;
   }
 
   function onePanel(p) {
@@ -60,11 +70,11 @@ export function partitiUI({ root, parties, themes, t, getLang, announce, onChang
       </header>
       <section class="block" data-anim>
         <h4>${esc(t('partiti.status'))}</h4>
-        <p>${esc(L(p.status))}</p>
+        <p>${esc(L(p.status))} ${cite(p, p.status.src)}</p>
       </section>
       <section class="block" style="--ac:${p.color}" data-anim>
         <h4>${esc(t('partiti.program'))}</h4>
-        <ol class="points">${p.points.map((x) => `<li>${esc(L(x))}</li>`).join('')}</ol>
+        <ol class="points">${p.points.map((x) => `<li>${esc(L(x))} ${cite(p, x.src)}</li>`).join('')}</ol>
         <p class="fine">${esc(t('partiti.program.note'))}</p>
       </section>
       <section class="block" data-anim>
@@ -73,7 +83,8 @@ export function partitiUI({ root, parties, themes, t, getLang, announce, onChang
       </section>
       <section class="block" data-anim>
         <h4>${esc(t('partiti.sources'))} <span class="tag">${esc(t('partiti.sources.year', { y: L(p.updated) }))}</span></h4>
-        <ul class="sources">${p.sources.map((f) => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.label)}</a></li>`).join('')}</ul>
+        <ol class="sources numbered">${p.sources.map((f) => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener noreferrer">${esc(f.label)}</a> <span class="host">${esc(new URL(f.url).hostname.replace(/^www\./, ''))}</span></li>`).join('')}</ol>
+        <p class="fine">${esc(t('partiti.checked', { d: new Date(`${p.checked}T12:00:00`).toLocaleDateString(getLang() === 'en' ? 'en-GB' : 'it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) }))}</p>
       </section>
       <p class="hint" data-anim>${esc(t('partiti.compare.hint'))}</p>`;
   }

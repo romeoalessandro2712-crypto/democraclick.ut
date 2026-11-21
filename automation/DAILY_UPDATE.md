@@ -44,12 +44,19 @@ For each of the 10 parties:
 2. Search ansa.it, agi.it, adnkronos.com, pagellapolitica.it and the party's official site for programme
    news since the party's `checked` date (new programme documents, official proposals, votes).
    Add or replace a point only when the source states it explicitly; keep at most 6 points.
+   Every point, theme and status carries `"src": [n, ...]` = the 0-based index(es) of the card's
+   `sources` that state it (shown as numbered links). The validator rejects any statement without it.
 3. Set `checked` = today for each party whose sources were all opened today.
 4. `COLLECTED` = the **oldest** `checked` date, written like "21 novembre 2026" / "21 November 2026"
    (the validator enforces this, so the page never claims a check that did not happen).
 
 ## 4 · Finish
 1. `data/edition.js`: `UPDATED` = today if anything changed.
+   `data/registro.js`: when something changed, add ONE entry at the top for today: kind `aggiornamento`
+   (new polls/topic/party facts), `correzione` (something on the site was wrong: say what it said and
+   what is right) or `verifica`; IT + EN; `link` = today's report on GitHub
+   (https://github.com/romeoalessandro2712-crypto/democraclick.ut/blob/main/automation/reports/YYYY-MM-DD.md).
+   Never delete earlier entries.
 2. `npm run validate` → must end with "✔ data valid". Then `npm run build`.
    On any error: undo the change that caused it. Never "fix" a figure to make the check pass.
 3. Write `automation/reports/YYYY-MM-DD.md`: what changed, every new fact with its URL, what was
@@ -63,5 +70,5 @@ For each of the 10 parties:
 - Publish a figure, quote or date not found on an approved source today.
 - Estimate a missing number, merge figures from different releases, or round published figures.
 - Describe a party or a person with evaluative words that the source does not attribute to someone.
-- Change the design or code. This run touches only the `data/` files, `main.js` (`TUNE.polls.electionDate`)
+- Change the design or code. This run touches only the `data/` files (including `data/registro.js`), `main.js` (`TUNE.polls.electionDate`)
   and `automation/reports/`.

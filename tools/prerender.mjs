@@ -9,12 +9,14 @@ import { UPDATED } from '../data/edition.js';
 import { topicHTML, longDate } from '../worlds/topic-card.js';
 import { briefingHTML } from '../worlds/briefing.js';
 import { t } from '../i18n.js';
+import { REGISTRO } from '../data/registro.js';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const it = (o) => (o == null ? '' : typeof o === 'string' ? o : o.it);
 const n1 = (v) => v.toFixed(1).replace('.', ',');
 const box = (b) => `<p><strong>${esc(it(b.title))}</strong> ${esc(it(b.body))}</p>`;
 const link = (label, url) => `<a href="${esc(url)}" rel="noopener noreferrer">${esc(label)}</a>`;
+const cite = (p, src) => (src?.length ? ` <sup>${src.map((i) => `<a href="${esc(p.sources[i].url)}" rel="noopener noreferrer">[${i + 1}]</a>`).join('')}</sup>` : '');
 const alpha = [...PARTITI].sort((a, b) => a.name.localeCompare(b.name, 'it', { sensitivity: 'base' }));
 
 function partiti() {
@@ -22,13 +24,13 @@ function partiti() {
     <article>
       <h3>${esc(p.name)}</h3>
       <p>${esc(p.leader)} · ${esc(it(p.role))} · Fonti del ${esc(it(p.updated))}</p>
-      <p><strong>Stato del programma.</strong> ${esc(it(p.status))}</p>
+      <p><strong>Stato del programma.</strong> ${esc(it(p.status))}${cite(p, p.status.src)}</p>
       <h4>Programma in sintesi</h4>
-      <ol>${p.points.map((x) => `<li>${esc(it(x))}</li>`).join('')}</ol>
+      <ol>${p.points.map((x) => `<li>${esc(it(x))}${cite(p, x.src)}</li>`).join('')}</ol>
       <h4>Temi</h4>
-      <dl>${THEMES.map((th) => `<dt>${esc(it(th.label))}</dt><dd>${esc(it(p.themes[th.id]) || 'Non emerso dalle fonti consultate.')}</dd>`).join('')}</dl>
+      <dl>${THEMES.map((th) => `<dt>${esc(it(th.label))}</dt><dd>${p.themes[th.id] ? esc(it(p.themes[th.id])) + cite(p, p.themes[th.id].src) : 'Non emerso dalle fonti consultate.'}</dd>`).join('')}</dl>
       <h4>Fonti</h4>
-      <ul>${p.sources.map((s) => `<li>${link(s.label, s.url)}</li>`).join('')}</ul>
+      <ol>${p.sources.map((s) => `<li>${link(s.label, s.url)}</li>`).join('')}</ol>
     </article>`).join('');
 }
 
@@ -60,7 +62,7 @@ function dati() {
 }
 
 function fonti() {
-  return alpha.map((p) => `<h4>${esc(p.name)} (fonti del ${esc(it(p.updated))})</h4><ul>${p.sources.map((s) => `<li>${link(s.label, s.url)}</li>`).join('')}</ul>`).join('');
+  return `<h4>Registro delle verifiche e correzioni</h4><ul>${REGISTRO.map((r) => `<li>${esc(r.date.split('-').reverse().join('/'))} · ${esc(r.text.it)}${r.link ? ` ${link('Dettagli', r.link)}` : ''}</li>`).join('')}</ul>` + alpha.map((p) => `<h4>${esc(p.name)} (fonti del ${esc(it(p.updated))})</h4><ul>${p.sources.map((s) => `<li>${link(s.label, s.url)}</li>`).join('')}</ul>`).join('');
 }
 
 function metodo() {

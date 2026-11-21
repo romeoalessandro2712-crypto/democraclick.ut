@@ -23,6 +23,8 @@ export const SOURCES = [...PARTITI]
     };
   }));
 
+import { REGISTRO } from '../data/registro.js';
+
 export function fontiUI({ root, t, getLang, view, announce }) {
   const index = root.querySelector('#src-index');
   const card = root.querySelector('#src-card');
@@ -36,7 +38,15 @@ export function fontiUI({ root, t, getLang, view, announce }) {
       if (!g || g.party !== s.party) { g = { party: s.party, items: [] }; groups.push(g); }
       g.items.push(i);
     });
-    index.innerHTML = groups.map((g) => `
+    const kind = (k) => t(`reg.${k}`);
+    const fmtD = (d) => new Date(`${d}T12:00:00`).toLocaleDateString(getLang() === 'en' ? 'en-GB' : 'it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
+    const wasOpen = index.querySelector('#registro')?.open ?? false;
+    index.innerHTML = `<details id="registro" class="registro"${wasOpen ? ' open' : ''}>
+        <summary>${esc(t('reg.title'))} <span class="tag">${REGISTRO.length}</span></summary>
+        <p class="fine">${esc(t('reg.lead'))}</p>
+        <ol class="reg-list">${REGISTRO.map((r) => `<li class="reg ${r.kind}"><span class="reg-k">${esc(kind(r.kind))}</span><time datetime="${r.date}">${esc(fmtD(r.date))}</time>
+          <p>${esc(L(r.text))}${r.link ? ` <a href="${esc(r.link)}" target="_blank" rel="noopener noreferrer">${esc(t('reg.more'))}</a>` : ''}</p></li>`).join('')}</ol>
+      </details>` + groups.map((g) => `
       <div class="src-group">
         <h3 style="--ac:${g.party.color}">${g.party.logo ? `<img class="plogo xs" src="${g.party.logo}" alt="" width="64" height="64">` : ''}${esc(g.party.name)} <span class="tag">${esc(t('partiti.sources.year', { y: L(g.party.updated) }))}</span></h3>
         <ul>${g.items.map((i) => `<li><button type="button" class="src-btn" data-src="${i}" aria-pressed="${open === i}"><span class="pub">${esc(SOURCES[i].publisher)}</span> ${esc(SOURCES[i].title)}</button></li>`).join('')}</ul>

@@ -269,6 +269,19 @@ export const dict = {
 
 // Newsroom pass, coalition remake and the COMMUNITY discussion (added 21/11/2026)
 Object.assign(dict.it, {
+  'partiti.cite.aria': 'Fonte {n}: {l} (si apre in una nuova scheda)',
+  'partiti.checked': 'Fonti di questa scheda verificate il {d}. I numeri accanto a ogni frase rimandano alla fonte.',
+  'reg.title': 'Registro delle verifiche e correzioni',
+  'reg.lead': 'Che cosa abbiamo ricontrollato o corretto, e quando. Le versioni precedenti non vengono cancellate.',
+  'reg.verifica': 'Verifica', 'reg.correzione': 'Correzione', 'reg.aggiornamento': 'Aggiornamento',
+  'reg.more': 'Dettagli',
+  'pledge.aria': 'Come lavoriamo',
+  'pledge.src': 'Ogni affermazione ha la sua fonte',
+  'pledge.money': 'Nessun finanziamento da partiti',
+  'pledge.fix': 'Correzioni pubbliche',
+  'footer.fixes': 'Correzioni',
+  'ctl.lite': 'Leggera',
+  'ctl.lite.title': 'Versione leggera, senza 3D: stessi contenuti, più veloce',
   'sv.coalTitle': 'Coalizioni — dato Supermedia (%)',
   'sv.simTitle': 'Simulazioni con il centro',
   'sv.simNote': 'Somme aritmetiche dei consensi riportati: non sono sondaggi di coalizione e non considerano come potrebbe cambiare il voto dopo un accordo.',
@@ -354,6 +367,19 @@ Object.assign(dict.it, {
   'cm.tip': 'Partecipa alla discussione',
 });
 Object.assign(dict.en, {
+  'partiti.cite.aria': 'Source {n}: {l} (opens in a new tab)',
+  'partiti.checked': 'Sources for this card checked on {d}. The numbers next to each sentence link to its source.',
+  'reg.title': 'Record of checks and corrections',
+  'reg.lead': 'What we re-checked or corrected, and when. Earlier versions are not deleted.',
+  'reg.verifica': 'Check', 'reg.correzione': 'Correction', 'reg.aggiornamento': 'Update',
+  'reg.more': 'Details',
+  'pledge.aria': 'How we work',
+  'pledge.src': 'Every statement has its source',
+  'pledge.money': 'No funding from parties',
+  'pledge.fix': 'Public corrections',
+  'footer.fixes': 'Corrections',
+  'ctl.lite': 'Light',
+  'ctl.lite.title': 'Light version without 3D: same content, faster',
   'sv.coalTitle': 'Coalitions — Supermedia figure (%)',
   'sv.simTitle': 'Simulations with the centre',
   'sv.simNote': 'Arithmetic sums of the reported figures: they are not coalition polls and do not consider how votes could shift after an agreement.',
@@ -470,6 +496,7 @@ export function applyI18n(lang, root = document) {
   document.documentElement.lang = current;
   root.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
   root.querySelectorAll('[data-i18n-aria]').forEach((el) => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  root.querySelectorAll('[data-i18n-title]').forEach((el) => { el.setAttribute('title', t(el.dataset.i18nTitle)); });
   root.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === current)));
   try { localStorage.setItem('dc-lang', current); } catch (e) { /* storage unavailable */ }
   document.dispatchEvent(new CustomEvent('dc:lang', { detail: current }));

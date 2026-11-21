@@ -23,6 +23,13 @@ const { PARTITI, THEMES, COLLECTED } = await import('../data/partiti.js');
 const { TOPICS, currentTopic } = await import('../data/topic.js');
 const { UPDATED } = await import('../data/edition.js');
 const { dict } = await import('../i18n.js');
+const { REGISTRO } = await import('../data/registro.js');
+REGISTRO.forEach((r, i) => {
+  if (!isoOk(r.date) || r.date > today) err(`REGISTRO ${i}: bad date ${r.date}`);
+  if (!['verifica', 'correzione', 'aggiornamento'].includes(r.kind)) err(`REGISTRO ${i}: kind must be verifica/correzione/aggiornamento`);
+  if (!r.text?.it || !r.text?.en) err(`REGISTRO ${i}: text needs it + en`);
+  if (i && r.date > REGISTRO[i - 1].date) err('REGISTRO: entries must be newest first');
+});
 
 // ── polls
 if (!isoOk(POLL.source.dataDate) || !isoOk(POLL.source.published)) err('POLL: dataDate/published must be YYYY-MM-DD');
@@ -91,6 +98,12 @@ for (const p of PARTITI) {
   p.sources?.forEach((s) => { if (!/^https:\/\//.test(s.url) || !host(s.url)) err(`PARTITI ${p.id}: bad URL ${s.url}`); });
   if (!p.points?.length || p.points.some((x) => !x.it || !x.en)) err(`PARTITI ${p.id}: points need it + en`);
   themeIds.forEach((k) => { const v = p.themes[k]; if (v !== null && (!v?.it || !v?.en)) err(`PARTITI ${p.id}: theme ${k} needs it + en or null`); });
+  // every statement must cite at least one of the card's own sources
+  const srcOk = (x) => Array.isArray(x) && x.length > 0 && x.every((i) => Number.isInteger(i) && i >= 0 && i < p.sources.length);
+  p.points.forEach((x, i) => { if (!srcOk(x.src)) err(`PARTITI ${p.id}: point ${i + 1} has no valid "src"`); });
+  if (!srcOk(p.status?.src)) err(`PARTITI ${p.id}: status has no valid "src"`);
+  themeIds.forEach((k) => { if (p.themes[k] && !srcOk(p.themes[k].src)) err(`PARTITI ${p.id}: theme ${k} has no valid "src"`); });
+  p.sources.forEach((s, i) => { const used = p.points.some((x) => x.src?.includes(i)) || p.status?.src?.includes(i) || themeIds.some((k) => p.themes[k]?.src?.includes(i)); if (!used) warn(`PARTITI ${p.id}: source ${i + 1} is not cited by any statement`); });
 }
 const oldest = PARTITI.map((p) => p.checked).sort()[0];
 const collectedIso = new Date(`${oldest}T12:00:00`).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });

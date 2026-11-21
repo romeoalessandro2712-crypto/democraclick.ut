@@ -87,6 +87,9 @@
       <button type="button" class="ctl" data-lang="it" aria-pressed="true">IT</button>
       <button type="button" class="ctl" data-lang="en" aria-pressed="false">EN</button>
     </div>
+    <button id="lite-toggle" class="ctl" type="button" aria-pressed="false" title="Versione leggera, senza 3D" data-i18n-title="ctl.lite.title">
+      <span class="lite-ic" aria-hidden="true"></span><span data-i18n="ctl.lite">Leggera</span>
+    </button>
     <button id="sound-toggle" class="ctl" type="button" aria-pressed="false">
       <span class="snd-dot" aria-hidden="true"></span><span data-i18n="ctl.sound">Suono</span>
     </button>
@@ -105,6 +108,11 @@
         <span class="w" data-i18n="hero.w3">Partecipare.</span>
       </h1>
       <p class="sub" data-anim data-i18n="brand.sub">Un progetto indipendente per orientarsi tra programmi, dati e idee.</p>
+      <ul class="pledges">
+        <li><a href="#partiti"><span class="pl-ic" aria-hidden="true">1</span><span data-i18n="pledge.src">Ogni affermazione ha la sua fonte</span></a></li>
+        <li><a href="#metodo"><span class="pl-ic" aria-hidden="true">€</span><span data-i18n="pledge.money">Nessun finanziamento da partiti</span></a></li>
+        <li><a href="#fonti" data-open-registro><span class="pl-ic" aria-hidden="true">✓</span><span data-i18n="pledge.fix">Correzioni pubbliche</span></a></li>
+      </ul>
     </div>
     <a id="enter-orb" class="enter" href="#partiti" aria-label="Click: entra nell’Agorà e vai ai partiti" data-i18n-aria="hero.enter.aria">
       <span class="orb" aria-hidden="true"></span>
@@ -251,9 +259,9 @@
 </main>
 
 <footer class="foot">
-  <p><span>© 2026 DemocraClick · <i lang="en">Promises. Tracked.</i></span> <span data-i18n="footer.line">Progetto indipendente, non collegato ad alcun partito.</span>
+  <p><span>© 2026 DemocraClick<span class="foot-motto"> · <i lang="en">Promises. Tracked.</i></span></span> <span data-i18n="footer.line">Progetto indipendente, non collegato ad alcun partito.</span>
     <span id="foot-upd" class="foot-upd"></span>
-    <span class="foot-links"><a href="#metodo" data-i18n="footer.method">Metodo</a> <a href="#fonti" data-i18n="footer.sources">Fonti</a> <a href="privacy.html" data-i18n="nav.privacy">Privacy</a></span></p>
+    <span class="foot-links"><a href="#metodo" data-i18n="footer.method">Metodo</a> <a href="#fonti" data-i18n="footer.sources">Fonti</a> <a href="#fonti" data-open-registro data-i18n="footer.fixes">Correzioni</a> <a href="privacy.html" data-i18n="nav.privacy">Privacy</a></span></p>
 </footer>
 
 <div id="tip" aria-hidden="true" hidden></div>

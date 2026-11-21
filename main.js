@@ -311,7 +311,11 @@ function initCursor() {
 // ───────────────────────── 3D CAPABILITY ─────────────────────────
 function canRun3D() {
   let force = false;
-  try { force = localStorage.getItem('dc-3d') === 'force'; } catch (e) { /* ignore */ }
+  try {
+    const pref = localStorage.getItem('dc-3d');
+    if (pref === 'off') return false; // the visitor chose the light version
+    force = pref === 'force';
+  } catch (e) { /* ignore */ }
   try {
     // failIfMajorPerformanceCaveat: no context when the browser would draw 3D in software
     // (no usable GPU). Those visitors get the fast 2D version instead of a stuttering scene.
@@ -406,6 +410,21 @@ async function boot() {
   };
   collected(); editorial();
   document.addEventListener('dc:lang', () => { collected(); editorial(); document.title = S.world === 'home' ? t('meta.title') : `${t(`nav.${S.world}`)} · DemocraClick`; Object.values(UIS).forEach((u) => u.rerender?.()); announce(t('world.now', { name: t(`nav.${S.world}`) })); });
+  // light version: same content and navigation, no 3D (faster, calmer, kinder to old phones)
+  const lite = $('#lite-toggle');
+  if (lite) {
+    let off = false; try { off = localStorage.getItem('dc-3d') === 'off'; } catch (e) { /* ignore */ }
+    lite.setAttribute('aria-pressed', String(off));
+    lite.addEventListener('click', () => {
+      try { if (off) localStorage.removeItem('dc-3d'); else localStorage.setItem('dc-3d', 'off'); } catch (e) { /* ignore */ }
+      location.reload();
+    });
+  }
+  // "Correzioni" links open the public record in FONTI
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest?.('[data-open-registro]')) return;
+    setTimeout(() => { const r = $('#registro'); if (r) { r.open = true; r.querySelector('summary')?.focus({ preventScroll: true }); } }, 60);
+  });
   const snd = $('#sound-toggle');
   snd?.addEventListener('click', () => {
     S.sound = !S.sound;
