@@ -1,4 +1,7 @@
 // worlds/home.js — HOME: a breathing ring of glass orbs around one glowing "Click" orb.
+// Each orb carries a party symbol (same size for all, alphabetical order, the ring keeps turning
+// so no party holds a fixed front position), so the page reads at once as a political site.
+import { PARTITI } from '../data/partiti.js';
 // Two parts: homeUI (DOM, works without WebGL) and homeView (3D, receives THREE via ctx).
 
 /** DOM side: word-by-word hero + the literal "Click" button. */
@@ -51,6 +54,34 @@ export function homeView(ctx) {
   const halo = new THREE.Mesh(new THREE.TorusGeometry(0.9, 0.009, 8, 160), haloMat);
   halo.position.copy(CENTER);
   ctx.scene.add(clickOrb, halo);
+
+  // party symbols on the orbs: round medallions just in front of the glass, facing the camera
+  const ALPHA = [...PARTITI].sort((x, y) => x.name.localeCompare(y.name, 'it', { sensitivity: 'base' }));
+  const medals = ALPHA.slice(0, orbs.count).map((party) => {
+    const c = document.createElement('canvas');
+    c.width = c.height = 256;
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const img = new Image();
+    img.onload = () => {
+      const g = c.getContext('2d');
+      g.save(); g.beginPath(); g.arc(128, 128, 116, 0, Math.PI * 2); g.closePath();
+      g.fillStyle = '#ffffff'; g.fill(); g.clip();
+      const k = Math.max(232 / img.width, 232 / img.height);
+      g.drawImage(img, 128 - (img.width * k) / 2, 128 - (img.height * k) / 2, img.width * k, img.height * k);
+      g.restore();
+      g.lineWidth = 10; g.strokeStyle = party.color || '#5b6878';
+      g.beginPath(); g.arc(128, 128, 121, 0, Math.PI * 2); g.stroke();
+      tex.needsUpdate = true;
+    };
+    if (party.logo) img.src = party.logo;
+    const m = new THREE.SpriteMaterial({ map: tex, transparent: true, opacity: 0, depthWrite: false, fog: false, toneMapped: false }); // crisp, not veiled by the haze
+    const sp = new THREE.Sprite(m);
+    sp.renderOrder = 2;
+    ctx.scene.add(sp);
+    return { sp, m, o: 0 };
+  });
+  const toCam = new THREE.Vector3();
 
   const cs = { s: 0, ts: 0 };
   let ringRot = 0;
@@ -107,6 +138,19 @@ export function homeView(ctx) {
       halo.scale.setScalar(Math.max(0.0001, hs));
       halo.visible = cs.s > 0.04;
       clickOrb.visible = cs.s > 0.04;
+      // symbols follow their orbs (same bob as the orb), fade in with the home, out when leaving
+      medals.forEach((md, i) => {
+        const st = orbs.state[i];
+        md.o += ((active ? 1 : 0) - md.o) * (1 - Math.exp(-dt * (active ? 2.2 : 6)));
+        md.m.opacity = md.o * Math.min(1, st.s);
+        md.sp.visible = md.m.opacity > 0.01;
+        if (!md.sp.visible) return;
+        toCam.copy(ctx.camera.position).sub(st.p).normalize();
+        md.sp.position.copy(st.p).addScaledVector(toCam, 0.6 * st.s);
+        md.sp.position.y += Math.sin(t * 0.7 + st.phase) * 0.05;
+        const sc = 0.62 * st.s;
+        md.sp.scale.set(sc, sc, 1);
+      });
     },
     pickables() { return active ? [clickOrb, orbs.mesh] : []; },
     resolve(hit) { return { type: 'enter', point: hit.object === clickOrb ? CENTER : hit.point }; },
