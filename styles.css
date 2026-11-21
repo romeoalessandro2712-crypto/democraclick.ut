@@ -540,7 +540,7 @@ html:not(.js) #cursor, html:not(.js) #veil, html:not(.js) #labels, html:not(.js)
   .nav ul { justify-content: flex-start; gap: 18px; padding-right: var(--gut-r); }
   .controls { gap: 4px; }
   .ctl { padding: 7px 8px; }
-  #theme-toggle [data-i18n], #sound-toggle [data-i18n], #lite-toggle [data-i18n] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #theme-toggle [data-i18n], #sound-toggle [data-i18n] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .wordmark { font-size: 21px; }
 
   .hero-copy { bottom: calc(var(--bot) + 16px); }
@@ -943,13 +943,9 @@ html:not(.js) .topic { display: none; }
 }
 .pledges a:hover { border-color: var(--accent); transform: translateY(-1px); }
 .pl-ic { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--solid); color: var(--on-solid); font: 700 10.5px/1 var(--f-ui); }
-.lite-ic { width: 10px; height: 10px; border-radius: 2px; border: 1px solid currentColor; position: relative; }
-.lite-ic::after { content: ""; position: absolute; inset: 2px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
-#lite-toggle[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); }
 @media (max-width: 760px) {
   .pledges { margin-top: 10px; gap: 5px; }
   .pledges a { font-size: 11px; padding: 4px 9px 4px 4px; }
   .pl-ic { width: 17px; height: 17px; font-size: 9.5px; }
 }
 html:not(.js) .pledges a[data-open-registro] { display: none; }
-.ctl[hidden] { display: none !important; }
