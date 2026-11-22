@@ -10,11 +10,11 @@
     "m5s": ["movimento5stelle.eu"],
     "fi": ["forzaitalia.it"],
     "lega": ["leganord.org"],
-    "avs": [],
+    "avs": ["verdisinistra.it"],
     "azione": ["azione.it"],
     "iv": ["italiaviva.it"],
     "piueuropa": ["piueuropa.eu"],
     "fn": ["futuronazionale.it"]
   },
-  "_partyDomainsNote": "Checked by the first automatic run on 22/11/2026. Confirmed (homepage read, or the party's own pages found under the domain): fratelli-italia.it, movimento5stelle.eu, forzaitalia.it, azione.it, futuronazionale.it, leganord.org, partitodemocratico.it, italiaviva.it, piueuropa.eu. Removed because they could not be verified: lega-online.it, alleanzaverdisinistra.it (no page could be read or found). AVS facts may come only from approved outlets until a person confirms its official domain."
+  "_partyDomainsNote": "Checked by the first automatic run on 22/11/2026. Confirmed (homepage read, or the party's own pages found under the domain): fratelli-italia.it, movimento5stelle.eu, forzaitalia.it, azione.it, futuronazionale.it, leganord.org, partitodemocratico.it, italiaviva.it, piueuropa.eu. Removed because they could not be verified: lega-online.it, alleanzaverdisinistra.it. AVS: verdisinistra.it confirmed by the site owner on 22/11/2026 (homepage read: title \"Alleanza Verdi e Sinistra\")."
 }
