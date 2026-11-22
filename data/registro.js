@@ -4,6 +4,14 @@
 const REPORTS = 'https://github.com/romeoalessandro2712-crypto/democraclick.ut/blob/main/automation/reports/';
 export const REGISTRO = [
   {
+    date: '2026-11-22', kind: 'aggiornamento',
+    text: {
+      it: 'Nuovo tema del giorno sulla legge di bilancio 2027 (exit tax, pensioni, sanità), dalle fonti ANSA e AGI del 21 novembre e dal dossier della Camera. Sondaggi invariati: nessuna nuova Supermedia dopo quella del 19 novembre.',
+      en: 'New topic of the day on the 2027 budget law (exit tax, pensions, health), from ANSA and AGI reports of 21 November and the Chamber dossier. Polls unchanged: no new Supermedia after the 19 November one.',
+    },
+    link: `${REPORTS}2026-11-22.md`,
+  },
+  {
     date: '2026-11-21', kind: 'verifica',
     text: {
       it: 'Ricontrollate tutte le 35 fonti delle schede dei partiti. Le affermazioni che nessuna fonte confermava sono state rimosse, altre corrette; ora ogni affermazione indica la sua fonte numerata.',
