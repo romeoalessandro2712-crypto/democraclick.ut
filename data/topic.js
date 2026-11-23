@@ -9,6 +9,36 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-23-patrimoniale',
+    date: '2026-11-23',
+    area: { it: 'Fisco', en: 'Taxation' },
+    title: {
+      it: 'Tassa sui grandi patrimoni: le posizioni dei partiti dopo la proposta di Schlein',
+      en: 'A tax on large fortunes: where the parties stand after Schlein’s proposal',
+    },
+    summary: {
+      it: 'Il 22 novembre, al summit di Parigi contro le oligarchie, la segretaria del PD Elly Schlein ha sostenuto lo schema proposto da Zucman: un contributo del 2% sui patrimoni superiori a 100 milioni di euro. Secondo ANSA, AGI e Adnkronos, la proposta ha diviso gli alleati del centrosinistra ed è stata criticata da Forza Italia. Secondo ANSA, il tema è all’ordine del giorno del tavolo del programma del centrosinistra lunedì 23 novembre.',
+      en: 'On 22 November, at the Paris summit against oligarchy, PD leader Elly Schlein backed the scheme proposed by Zucman: a 2% contribution on fortunes above 100 million euros. According to ANSA, AGI and Adnkronos, the proposal divided the centre-left allies and was criticised by Forza Italia. According to ANSA, the issue is on the agenda of the centre-left programme table on Monday 23 November.',
+    },
+    points: [
+      { it: 'PD: Schlein ha detto «Appoggiamo la proposta di Zucman» e «Noi non tasseremo il ceto medio» (AGI).', en: 'PD: Schlein said “We support Zucman’s proposal” and “We will not tax the middle class” (AGI).' },
+      { it: 'AVS: secondo ANSA chiede un’imposta progressiva sui patrimoni oltre 5,4 milioni e ritiene troppo alta la soglia di 100 milioni; secondo AGI Nicola Fratoianni ha detto nei giorni scorsi «Senza patrimoniale non c’è coalizione».', en: 'AVS: according to ANSA it wants a progressive tax on wealth above 5.4 million and considers the 100 million threshold too high; according to AGI, Nicola Fratoianni said in recent days “Without a wealth tax there is no coalition”.' },
+      { it: 'Movimento 5 Stelle: secondo AGI Giuseppe Conte ritiene un errore una patrimoniale sui grandi patrimoni perché potrebbe spingere gli investimenti fuori dall’Italia; secondo Adnkronos il M5S ha avanzato proposte sui redditi finanziari.', en: 'Five Star Movement: according to AGI, Giuseppe Conte considers a tax on large fortunes a mistake because it could push investment out of Italy; according to Adnkronos, the M5S has put forward proposals on financial income.' },
+      { it: 'Italia Viva e +Europa: secondo ANSA Matteo Renzi sostiene che le tasse vadano ridotte, non aumentate, e +Europa è «molto tiepida».', en: 'Italia Viva and +Europa: according to ANSA, Matteo Renzi argues taxes should be cut, not raised, and +Europa is “very lukewarm”.' },
+      { it: 'Forza Italia: secondo ANSA Antonio Tajani ha affermato che «Il Pd si mette al servizio dell’internazionale delle tasse». Schlein ha replicato che Tajani «ha alzato le tasse agli italiani», citando dati Istat sulla pressione fiscale (Adnkronos).', en: 'Forza Italia: according to ANSA, Antonio Tajani said that “the PD is putting itself at the service of the tax international”. Schlein replied that Tajani “raised taxes on Italians”, citing Istat data on the tax burden (Adnkronos).' },
+    ],
+    question: {
+      it: 'Quale ruolo dovrebbe avere, secondo te, la tassazione dei grandi patrimoni nel sistema fiscale italiano?',
+      en: 'In your view, what role should the taxation of large fortunes play in Italy’s tax system?',
+    },
+    links: [
+      { label: { it: 'ANSA: alleati tiepidi sulla «patrimoniale» di Schlein, e Tajani la attacca (22/11)', en: 'ANSA: allies lukewarm on Schlein’s wealth tax, Tajani attacks it (22/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/22/alleati-tiepidi-sulla-patrimoniale-di-schlein-e-tajani-la-attacca_8832c861-009e-4826-9077-8b8df8ecc0e3.html' },
+      { label: { it: 'AGI: patrimoniale, Schlein rilancia il 2% sopra i 100 milioni (22/11)', en: 'AGI: wealth tax, Schlein backs 2% above 100 million (22/11, in Italian)' }, host: 'www.agi.it', url: 'https://www.agi.it/politica/news/2026-11-22/patrimoniale-schlein-avs-zucman-campo-largo-40136439/' },
+      { label: { it: 'Adnkronos: patrimoniale, botta e risposta Tajani-Schlein (22/11)', en: 'Adnkronos: wealth tax, Tajani–Schlein exchange (22/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/politica/patrimoniale-scontro-tajani-schlein-tasse-summit-parigi_14soFXa3cTLafxQUavV98s' },
+    ],
+    checked: '2026-11-23',
+  },
+  {
     id: '2026-11-22-manovra',
     date: '2026-11-22',
     area: { it: 'Economia e conti pubblici', en: 'Economy and public finances' },
