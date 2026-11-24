@@ -4,6 +4,14 @@
 const REPORTS = 'https://github.com/romeoalessandro2712-crypto/democraclick.ut/blob/main/automation/reports/';
 export const REGISTRO = [
   {
+    date: '2026-11-24', kind: 'aggiornamento',
+    text: {
+      it: 'Nuovo tema del giorno sull’intervento del Presidente Mattarella sul fisco ai nuovi magistrati tributari, dalle fonti ANSA, AGI e Adnkronos del 23 novembre. Sondaggi invariati: nessuna nuova Supermedia dopo quella del 19 novembre.',
+      en: 'New topic of the day on President Mattarella’s remarks on taxation to the new tax judges, from ANSA, AGI and Adnkronos reports of 23 November. Polls unchanged: no new Supermedia after the 19 November one.',
+    },
+    link: `${REPORTS}2026-11-24.md`,
+  },
+  {
     date: '2026-11-23', kind: 'aggiornamento',
     text: {
       it: 'Nuovo tema del giorno sulla tassa sui grandi patrimoni e le posizioni dei partiti, dalle fonti ANSA, AGI e Adnkronos del 22 novembre. Sondaggi invariati: nessuna nuova Supermedia dopo quella del 19 novembre.',

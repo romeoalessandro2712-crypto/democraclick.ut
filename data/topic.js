@@ -9,6 +9,37 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-24-mattarella-fisco',
+    date: '2026-11-24',
+    area: { it: 'Fisco', en: 'Taxation' },
+    title: {
+      it: 'Mattarella ai nuovi magistrati tributari: «per contribuire di meno bisogna contribuire tutti»',
+      en: 'Mattarella to the new tax judges: “to contribute less, everyone has to contribute”',
+    },
+    summary: {
+      it: 'Il 23 novembre il Presidente della Repubblica Sergio Mattarella ha incontrato al Quirinale i primi magistrati tributari in tirocinio. Secondo ANSA, AGI e Adnkronos, ha richiamato i principi costituzionali sul fisco: il dovere di solidarietà dell’articolo 2 e il concorso di tutti alle spese pubbliche in base alla capacità contributiva dell’articolo 53, e ha detto che «per contribuire di meno bisogna contribuire tutti». Secondo ANSA, il richiamo arriva mentre la legge di bilancio è ancora in costruzione.',
+      en: 'On 23 November the President of the Republic, Sergio Mattarella, met the first tax judges in training at the Quirinale. According to ANSA, AGI and Adnkronos, he recalled the constitutional principles on taxation: the duty of solidarity in Article 2 and everyone’s contribution to public spending according to their ability to pay in Article 53, and said that “to contribute less, everyone has to contribute”. According to ANSA, the remarks come while the budget law is still being shaped.',
+    },
+    points: [
+      { it: 'Mattarella: «Il pagamento dei tributi è l’adempimento di uno dei doveri inderogabili di solidarietà economica e sociale» previsti dall’articolo 2 della Costituzione (ANSA, Adnkronos).', en: 'Mattarella: “paying taxes is the fulfilment of one of the inviolable duties of economic and social solidarity” set by Article 2 of the Constitution (ANSA, Adnkronos).' },
+      { it: 'Ha citato l’articolo 53: «Tutti sono tenuti a concorrere alle spese pubbliche in ragione della loro capacità contributiva», (AGI, Adnkronos); secondo AGI ha richiamato anche i «criteri di progressività».', en: 'He quoted Article 53: “everyone is required to contribute to public spending according to their ability to pay”, (AGI, Adnkronos); according to AGI he also recalled the “criteria of progressivity”.' },
+      { it: '«Tutti auspichiamo, anche nei periodi di crescenti esigenze di natura pubblica, un fisco più leggero», ha detto, aggiungendo che il fisco «deve essere regolato secondo equità, trasparenza e rispetto dei diritti» (ANSA, AGI).', en: '“We all hope, even at times of growing public needs, for a lighter tax burden”, he said, adding that taxation “must be governed by fairness, transparency and respect for rights” (ANSA, AGI).' },
+      { it: 'Sull’evasione: «La violazione degli obblighi tributari ostacola la coesione sociale e l’unità nazionale»; «un sistema giudiziario efficiente e tempestivo scoraggia i comportamenti elusivi ed evasivi» (ANSA, AGI, Adnkronos).', en: 'On evasion: “breaching tax obligations hinders social cohesion and national unity”; “an efficient and timely judicial system discourages avoidance and evasion” (ANSA, AGI, Adnkronos).' },
+      { it: 'Secondo ANSA e AGI, Mattarella ha osservato che «non mancano gli strumenti tecnologici per tracciare la ricchezza»; secondo ANSA, ha aggiunto «senza violazioni dei diritti».', en: 'According to ANSA and AGI, Mattarella observed that “technological tools to trace wealth are not lacking”; according to ANSA, he added “without violating rights”.' },
+    ],
+    question: {
+      it: 'Come si dovrebbero bilanciare, secondo te, un fisco più leggero e il dovere di tutti di contribuire alle spese pubbliche?',
+      en: 'In your view, how should a lighter tax burden be balanced with everyone’s duty to contribute to public spending?',
+    },
+    links: [
+      { label: { it: 'Quirinale: intervento del Presidente all’incontro con i primi magistrati tributari in tirocinio (23/11)', en: 'Quirinale: the President’s address to the first tax judges in training (23/11, in Italian)' }, host: 'www.quirinale.it', url: 'https://www.quirinale.it/it/discorso/intervento-presidente-repubblica-sergio-mattarella-occasione-incontro-primi-magistrati-tributari-attualmente-tirocinio' },
+      { label: { it: 'ANSA: Mattarella, «per un fisco più leggero contribuiscano tutti» (23/11)', en: 'ANSA: Mattarella, “for a lighter tax burden everyone must contribute” (23/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/23/mattarella-per-un-fisco-piu-leggero-contribuiscano-tutti-serve-progressivita_b77f620d-611d-4e8e-b64a-0b31f44c9803.html' },
+      { label: { it: 'AGI: Mattarella, «il fisco sia regolato da equità e trasparenza» (23/11)', en: 'AGI: Mattarella, “taxation must be governed by fairness and transparency” (23/11, in Italian)' }, host: 'www.agi.it', url: 'https://www.agi.it/politica/news/2026-11-23/mattarella-fisco-equit-trasparenza-40160116/' },
+      { label: { it: 'Adnkronos: Mattarella, «per pagare meno tasse bisogna contribuire tutti» (23/11)', en: 'Adnkronos: Mattarella, “to pay less tax, everyone has to contribute” (23/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/politica/fisco-tasse-mattarella-incontro-primi-magistrati-tributari-in-tirocinio_5Qknxw9PKfT2ZRX7WrWBCP' },
+    ],
+    checked: '2026-11-24',
+  },
+  {
     id: '2026-11-23-patrimoniale',
     date: '2026-11-23',
     area: { it: 'Fisco', en: 'Taxation' },
