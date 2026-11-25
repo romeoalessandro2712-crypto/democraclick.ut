@@ -9,6 +9,37 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-25-manovra-emendamenti',
+    date: '2026-11-25',
+    area: { it: 'Legge di bilancio', en: 'Budget law' },
+    title: {
+      it: 'Manovra alla Camera: la commissione Bilancio scarta oltre 1.700 emendamenti, il testo in Aula dal 18 dicembre',
+      en: 'Budget at the Chamber: the Budget Committee rules out more than 1,700 amendments, the bill reaches the floor on 18 December',
+    },
+    summary: {
+      it: 'Secondo ANSA, AGI e Adnkronos, la commissione Bilancio della Camera ha dichiarato inammissibili oltre 1.700 emendamenti alla legge di bilancio 2027, circa un quarto di quelli presentati. Secondo Adnkronos, i gruppi dovranno indicare entro giovedì 26 novembre alle 14 un totale di 700 emendamenti «segnalati». Secondo ANSA e Adnkronos, la commissione dovrà chiudere i lavori il 16 dicembre e il testo dovrebbe arrivare in Aula il 18 dicembre. Sul possibile condono edilizio, maggioranza e opposizione hanno posizioni diverse.',
+      en: 'According to ANSA, AGI and Adnkronos, the Chamber’s Budget Committee declared more than 1,700 amendments to the 2027 budget law inadmissible, about a quarter of those tabled. According to Adnkronos, the groups must pick a total of 700 “flagged” amendments by 2 pm on Thursday 26 November. According to ANSA and Adnkronos, the committee must finish its work on 16 December and the bill is expected on the floor on 18 December. On a possible building amnesty, the majority and the opposition hold different positions.',
+    },
+    points: [
+      { it: 'Tra gli emendamenti dichiarati inammissibili c’è quello della Lega che aumentava l’Ires per le banche (ANSA, AGI).', en: 'Among the amendments ruled inadmissible is the Lega’s proposal to raise the corporate tax (Ires) on banks (ANSA, AGI).' },
+      { it: 'L’emendamento di Fratelli d’Italia sulla exit tax, che secondo Adnkronos alza la soglia dei redditi da 800mila a 2 milioni, era stato scartato (AGI) ed è stato riammesso dopo il ricorso (ANSA, Adnkronos).', en: 'The Brothers of Italy amendment on the exit tax, which according to Adnkronos raises the income threshold from 800,000 to 2 million, had been ruled out (AGI) and was readmitted after an appeal (ANSA, Adnkronos).' },
+      { it: 'Condono: secondo ANSA e Adnkronos, Matteo Salvini (Lega) ha detto che sul tema ci sarà di certo un emendamento della maggioranza.', en: 'Building amnesty: according to ANSA and Adnkronos, Matteo Salvini (Lega) said a majority amendment on the issue will certainly be tabled.' },
+      { it: 'Elly Schlein (PD): «Trovo incredibile che il governo stia parlando di condono» (ANSA, Adnkronos).', en: 'Elly Schlein (PD): “I find it incredible that the government is talking about an amnesty” (ANSA, Adnkronos).' },
+      { it: 'Per i Comuni, il presidente dell’ANCI Gaetano Manfredi: «Non possiamo far ricadere sui Comuni problemi che sono decennali»; secondo ANSA e Adnkronos, il governo si è detto disponibile a verificare margini per gli enti locali durante l’esame della manovra.', en: 'For the municipalities, ANCI president Gaetano Manfredi: “we cannot pass problems that are decades old onto the municipalities”; according to ANSA and Adnkronos, the government said it was willing to look for room for local authorities during the budget’s examination.' },
+    ],
+    question: {
+      it: 'Quali criteri dovrebbero guidare, secondo te, la scelta delle modifiche da apportare alla legge di bilancio in Parlamento?',
+      en: 'In your view, what criteria should guide the choice of the changes Parliament makes to the budget law?',
+    },
+    links: [
+      { label: { it: 'ANSA: riammesso l’emendamento FdI su exit tax, pressing di Salvini sul condono (24/11)', en: 'ANSA: FdI exit tax amendment readmitted, Salvini presses on the amnesty (24/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/24/pressing-di-salvini-sul-condono.-alt-dei-sindaci-non-ricada-tutto_afb633f3-0b1a-4acd-8a7c-858433efc830.html' },
+      { label: { it: 'AGI: gli emendamenti alla manovra dichiarati inammissibili (23/11)', en: 'AGI: the budget amendments ruled inadmissible (23/11, in Italian)' }, host: 'www.agi.it', url: 'https://www.agi.it/economia/news/2026-11-23/emendamenti-bocciati-manovra-bilancio-40161770/' },
+      { label: { it: 'Adnkronos: manovra, testo alla Camera il 18 dicembre (25/11)', en: 'Adnkronos: budget bill on the Chamber floor on 18 December (25/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/economia/manovra-2027-condono-pensioni-spalmacrediti-ipotesi-governo_7DRQw8yvMpeqVKSdXfEIfp' },
+      { label: { it: 'Camera dei deputati: dossier sulla legge di bilancio 2027 (documento ufficiale)', en: 'Chamber of Deputies: dossier on the 2027 budget law (official document)' }, host: 'temi.camera.it', url: 'https://temi.camera.it/leg19/dossier/OCD18-23875/legge-bilancio-2027-profili-finanziari-vol-1.html' },
+    ],
+    checked: '2026-11-25',
+  },
+  {
     id: '2026-11-24-mattarella-fisco',
     date: '2026-11-24',
     area: { it: 'Fisco', en: 'Taxation' },
