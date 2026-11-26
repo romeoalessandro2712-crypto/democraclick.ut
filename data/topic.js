@@ -9,6 +9,37 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-26-manovra-vertice-superbonus',
+    date: '2026-11-26',
+    area: { it: 'Legge di bilancio', en: 'Budget law' },
+    title: {
+      it: 'Manovra, vertice di maggioranza a Palazzo Chigi: sul tavolo Superbonus, pensioni, sanità e condono',
+      en: 'Budget: majority summit at Palazzo Chigi on the Superbonus, pensions, health and the building amnesty',
+    },
+    summary: {
+      it: 'Secondo AGI, il 25 novembre si è svolto a Palazzo Chigi un vertice di maggioranza con la presidente del Consiglio Giorgia Meloni, i vicepremier Antonio Tajani e Matteo Salvini, il leader di Noi Moderati Maurizio Lupi e il ministro dell’Economia Giancarlo Giorgetti. Secondo AGI, sanità, pensioni e Superbonus restano i principali nodi della legge di bilancio 2027. Secondo ANSA e Adnkronos, la maggioranza valuta di eliminare la norma che spalma su dieci anni i crediti residui del Superbonus; non risulta ancora una decisione. Secondo AGI, la commissione Bilancio della Camera ha fissato il calendario: votazioni da giovedì 3 dicembre, esame degli emendamenti da concludere entro martedì 15 dicembre.',
+      en: 'According to AGI, a majority summit was held at Palazzo Chigi on 25 November with Prime Minister Giorgia Meloni, deputy prime ministers Antonio Tajani and Matteo Salvini, Noi Moderati leader Maurizio Lupi and Economy Minister Giancarlo Giorgetti. According to AGI, health, pensions and the Superbonus remain the main open issues of the 2027 budget law. According to ANSA and Adnkronos, the majority is considering scrapping the rule that spreads the remaining Superbonus credits over ten years; no decision has been reported yet. According to AGI, the Chamber’s Budget Committee set its timetable: votes from Thursday 3 December, with the examination of amendments to be completed by Tuesday 15 December.',
+    },
+    points: [
+      { it: 'Superbonus: Maurizio Lupi (Noi Moderati): «Speriamo rimanga la vecchia norma. Però vediamo» (AGI); secondo ANSA, Lupi ha detto: «Stiamo lavorando per cancellarlo», riferito allo spalma crediti.', en: 'Superbonus: Maurizio Lupi (Noi Moderati): “we hope the old rule stays. But we’ll see” (AGI); according to ANSA, Lupi said “we are working to cancel it”, referring to the credit-spreading rule.' },
+      { it: 'Condono: secondo AGI e Adnkronos, Lupi ha detto che la proposta, a cui lavora Matteo Salvini (Lega), arriverà nei prossimi giorni; secondo ANSA, Antonio Tajani (Forza Italia) ha detto: «Non sarà senza limiti».', en: 'Building amnesty: according to AGI and Adnkronos, Lupi said the proposal, being drafted by Matteo Salvini (Lega), will come in the next few days; according to ANSA, Antonio Tajani (Forza Italia) said: “it will not be without limits”.' },
+      { it: 'Giuseppe Conte, presidente del Movimento 5 Stelle: «È una manovra da campagna elettorale» e «il condono non può essere una soluzione per far cassa» (AGI).', en: 'Giuseppe Conte, president of the Five Star Movement: “it is an election-campaign budget” and “the amnesty cannot be a way to raise cash” (AGI).' },
+      { it: 'Secondo ANSA, le opposizioni non ridurranno i loro emendamenti con il meccanismo dei «super segnalati»; Elena Bonetti (Azione): «Va garantito uno svolgimento corretto dei lavori», linea che secondo lei condividono anche PD, M5S, AVS e IV.', en: 'According to ANSA, the opposition will not cut its amendments through the “super-flagged” mechanism; Elena Bonetti (Azione): “the work must be conducted properly”, a line she said PD, M5S, AVS and IV also share.' },
+      { it: 'Secondo Adnkronos, dopo l’esame in commissione il testo è atteso in Aula alla Camera venerdì 18 dicembre.', en: 'According to Adnkronos, after the committee stage the bill is expected on the Chamber floor on Friday 18 December.' },
+    ],
+    question: {
+      it: 'Secondo te, come andrebbero bilanciate la certezza delle regole per chi ha già usato un’agevolazione e le esigenze dei conti pubblici?',
+      en: 'In your view, how should certainty of the rules for those who have already used a tax incentive be balanced against the needs of the public finances?',
+    },
+    links: [
+      { label: { it: 'AGI: manovra, nuovo vertice: i nodi di sanità, pensioni e Superbonus (25/11)', en: 'AGI: budget, new summit on health, pensions and the Superbonus (25/11, in Italian)' }, host: 'www.agi.it', url: 'https://www.agi.it/economia/news/2026-11-25/manovra-vertice-centrodestra-pensioni-superbonus-40191262/' },
+      { label: { it: 'ANSA: verso la retromarcia sul Superbonus, via lo spalma crediti (25/11)', en: 'ANSA: towards a U-turn on the Superbonus credit-spreading rule (25/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/25/verso-la-retromarcia-sul-superbonus-via-lo-spalma-crediti_89646261-4185-4169-ae7b-46ca88eab534.html' },
+      { label: { it: 'ANSA: le opposizioni attaccano sulla manovra, «non faremo super segnalati» (25/11)', en: 'ANSA: the opposition attacks on the budget, “we won’t do super-flagged amendments” (25/11, in Italian)' }, host: 'ansa.it', url: 'https://ansa.it/sito/notizie/topnews/2026/11/25/le-opposizioni-attaccano-sulla-manovra-non-faremo-super-segnalati_ac2c08f1-cfdd-4ba5-a504-5b7737742089.html' },
+      { label: { it: 'Adnkronos: manovra, possibile stop allo spalma-crediti del Superbonus (25/11)', en: 'Adnkronos: budget, possible stop to the Superbonus credit-spreading rule (25/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/economia/manovra-maggioranza-accelera-su-modifiche-possibile-stop-spalma-crediti-superbonus_SyQlsTeJZ0z3ma4ZBQM6D' },
+    ],
+    checked: '2026-11-26',
+  },
+  {
     id: '2026-11-25-manovra-emendamenti',
     date: '2026-11-25',
     area: { it: 'Legge di bilancio', en: 'Budget law' },

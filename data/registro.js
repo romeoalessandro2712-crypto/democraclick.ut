@@ -4,6 +4,14 @@
 const REPORTS = 'https://github.com/romeoalessandro2712-crypto/democraclick.ut/blob/main/automation/reports/';
 export const REGISTRO = [
   {
+    date: '2026-11-26', kind: 'aggiornamento',
+    text: {
+      it: 'Nuovo tema del giorno sul vertice di maggioranza del 25 novembre sulla legge di bilancio 2027 (Superbonus, condono, calendario della commissione Bilancio), dalle fonti ANSA, AGI e Adnkronos del 25 novembre. Sondaggi invariati: nessuna nuova Supermedia dopo quella del 19 novembre.',
+      en: 'New topic of the day on the 25 November majority summit on the 2027 budget law (Superbonus, building amnesty, Budget Committee timetable), from ANSA, AGI and Adnkronos reports of 25 November. Polls unchanged: no new Supermedia after the 19 November one.',
+    },
+    link: `${REPORTS}2026-11-26.md`,
+  },
+  {
     date: '2026-11-25', kind: 'aggiornamento',
     text: {
       it: 'Nuovo tema del giorno sull’esame della legge di bilancio 2027 alla Camera (emendamenti inammissibili, calendario, condono), dalle fonti ANSA, AGI e Adnkronos del 23-25 novembre. Sondaggi invariati: nessuna nuova Supermedia dopo quella del 19 novembre.',
