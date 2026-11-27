@@ -269,6 +269,17 @@ export const dict = {
 
 // Newsroom pass, coalition remake and the COMMUNITY discussion (added 21/11/2026)
 Object.assign(dict.it, {
+  'home.h1': 'Informarsi. Confrontare. Partecipare.',
+  'dati.dotVote': 'Ogni pallino è un seggio, colorato secondo il voto di quel seggio.',
+  'nav.menu': 'Menu principale', 'nav.more': 'Altro', 'nav.tabs': 'Sezioni principali',
+  'feed.today': 'Tema del giorno', 'feed.lastTopic': 'Ultimo tema', 'feed.join': 'Leggi e partecipa',
+  'feed.polls.k': 'Sondaggi · {d}', 'feed.polls.t': 'Le coalizioni nella media dei sondaggi',
+  'feed.polls.s': 'Supermedia YouTrend/Agi. La linea indica il {th}%, la soglia del premio di maggioranza. Un sondaggio non è un risultato.',
+  'feed.polls.more': 'Tutti i sondaggi',
+  'feed.parties.k': 'Programmi', 'feed.parties.t': 'I partiti, in ordine alfabetico',
+  'feed.parties.s': 'Tocca un partito per vedere programma, temi e fonti. Puoi confrontarne due.',
+  'feed.about.t': 'Come lavoriamo',
+  'feed.record.t': 'Ultima verifica o correzione', 'feed.record.more': 'Registro completo',
   'partiti.cite.aria': 'Fonte {n}: {l} (si apre in una nuova scheda)',
   'partiti.checked': 'Fonti di questa scheda verificate il {d}. I numeri accanto a ogni frase rimandano alla fonte.',
   'reg.title': 'Registro delle verifiche e correzioni',
@@ -365,6 +376,17 @@ Object.assign(dict.it, {
   'cm.tip': 'Partecipa alla discussione',
 });
 Object.assign(dict.en, {
+  'home.h1': 'Get informed. Compare. Take part.',
+  'dati.dotVote': 'Each dot is a seat, coloured by how that seat voted.',
+  'nav.menu': 'Main menu', 'nav.more': 'More', 'nav.tabs': 'Main sections',
+  'feed.today': 'Topic of the day', 'feed.lastTopic': 'Latest topic', 'feed.join': 'Read and join in',
+  'feed.polls.k': 'Polls · {d}', 'feed.polls.t': 'The coalitions in the polling average',
+  'feed.polls.s': 'YouTrend/Agi Supermedia. The line marks {th}%, the majority-bonus threshold. A poll is not a result.',
+  'feed.polls.more': 'All polls',
+  'feed.parties.k': 'Programmes', 'feed.parties.t': 'The parties, in alphabetical order',
+  'feed.parties.s': 'Tap a party to see its programme, issues and sources. You can compare two.',
+  'feed.about.t': 'How we work',
+  'feed.record.t': 'Latest check or correction', 'feed.record.more': 'Full record',
   'partiti.cite.aria': 'Source {n}: {l} (opens in a new tab)',
   'partiti.checked': 'Sources for this card checked on {d}. The numbers next to each sentence link to its source.',
   'reg.title': 'Record of checks and corrections',

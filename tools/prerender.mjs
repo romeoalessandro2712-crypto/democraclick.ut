@@ -7,7 +7,7 @@ import { POLL, BLOCS, OUTSIDE, LAW, COALITIONS, SIMS, valueOf, sumOf, pctOf, OTH
 import { currentTopic, isToday } from '../data/topic.js';
 import { UPDATED } from '../data/edition.js';
 import { topicHTML, longDate } from '../worlds/topic-card.js';
-import { briefingHTML } from '../worlds/briefing.js';
+import { feedHTML, railHTML } from '../worlds/feed.js';
 import { t } from '../i18n.js';
 import { REGISTRO } from '../data/registro.js';
 
@@ -89,10 +89,12 @@ export function prerender() {
 }
 
 /** Fill every <div class="prerender" data-prerender="id"></div> in an HTML string, plus the HOME
- *  briefing and the footer's update date (visible without JavaScript; the script redraws them). */
+ *  feed, the right column and the footer's update date (visible without JavaScript; the script redraws them). */
 export function injectPrerender(html) {
   const blocks = prerender();
-  html = html.replace('<ol id="brief-list"></ol>', `<ol id="brief-list">${briefingHTML(t, 'it')}</ol>`)
-    .replace('<span id="foot-upd" class="foot-upd"></span>', `<span id="foot-upd" class="foot-upd">${esc(t('footer.updated', { d: longDate(UPDATED, 'it', false) }))}</span>`);
+  html = html.replace('<div id="feed" class="feed"></div>', `<div id="feed" class="feed">${feedHTML(t, 'it')}</div>`)
+    .replace('<div id="rail"></div>', `<div id="rail">${railHTML(t, 'it')}</div>`)
+    .replace('<p id="foot-upd" class="foot-upd"></p>', `<p id="foot-upd" class="foot-upd">${esc(t('footer.updated', { d: longDate(UPDATED, 'it', false) }))}</p>`);
+  for (const needle of ['id="feed" class="feed"><', 'id="rail"><', 'id="foot-upd" class="foot-upd"><']) if (html.includes(needle) && !html.includes(needle + 'article') && needle !== 'id="foot-upd" class="foot-upd"><') throw new Error(`prerender: ${needle} not filled`);
   return html.replace(/<div class="prerender" data-prerender="([a-z]+)"><\/div>/g, (m, id) => (blocks[id] ? `<div class="prerender" data-prerender="${id}">${blocks[id]}</div>` : m));
 }

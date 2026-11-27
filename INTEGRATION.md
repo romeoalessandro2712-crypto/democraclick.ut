@@ -1,26 +1,24 @@
-# DemocraClick · L'Agorà · Stage 2 (all six worlds)
+# DemocraClick · L'Agorà
 
 ## Files
 ```
-index.html            semantic HTML for all six worlds (the real content; 3D is enhancement)
-styles.css            tokens (your palette, light + dark), per-world layouts, phone sheets, 2D fallback
+index.html            semantic HTML for all seven pages; layout: side menu · reading column · right column; phone tabs
+styles.css            tokens (your palette, light + dark), the simple layout (desktop / tablet / phone), components
 i18n.js               UI strings, IT primary + EN (section titles come from data/content.js)
-main.js               boot, state machine, hash router, TUNE (the tunables), theme, language, cursor, sound
-scene.js              the single WebGL canvas (lazy-loaded; a failure never blocks the page)
-worlds/home.js        HOME: hero reveal, ring of orbs, the "Click" orb
-worlds/partiti.js     PARTITI: party orbs, constellation, compare bridge + dock and panel
-worlds/chamber.js     PARTITI's parliament: 400 seats on the tiers, Presidency bench, lectern, logo medallions
-worlds/dati.js        DATI: 100-column skyline; seats → vote → fixed numbers
-worlds/fonti.js       FONTI: ring of document planes + index + centred focus card
-worlds/metodo.js      METODO: 50 tiles (10 parties × 5 themes) through six method steps
-worlds/community.js   COMMUNITY: daily discussion (topic, Google sign-in, posts) + decorative node network
-worlds/topic-card.js  "Tema del giorno" card (shared by Community, Home and the prerender)
-worlds/briefing.js    HOME "In primo piano" strip, built from the section data
+main.js               boot, hash router (one page shown at a time), TUNE (the tunables), theme, language, phone "Altro" menu
+worlds/feed.js        HOME feed cards and the right column (topic, polls, parties, latest record entry)
+worlds/partiti.js     PARTITI: party list + party card, compare two (its old 3D view is no longer used)
+worlds/dati.js        DATI: flat seat chart (one dot per seat); seats → vote → fixed numbers
+worlds/fonti.js       FONTI: index of sources + focus card + public record
+worlds/metodo.js      METODO: six method steps
+worlds/community.js   COMMUNITY: daily discussion (topic, Google sign-in, posts)
+worlds/topic-card.js  "Tema del giorno" card (shared by Community and the prerender)
+scene.js, worlds/chamber.js   former 3D layer, not loaded by the site any more (kept only because partiti.js references it; safe to delete with that code)
 data/topic.js         Tema del giorno entries (newest first) + writing rules
 data/edition.js       date of the latest editorial update (footer)
-worlds/sondaggi.js    SONDAGGI: poll towers with party symbols; coalition stacks vs the 42% bonus line
+worlds/sondaggi.js    SONDAGGI: party table with symbols; coalition bars vs the 42% bonus line
 worlds/util.js        shared helpers
-privacy.html          plain privacy page (no 3D, no third-party requests), IT/EN
+privacy.html          plain privacy page (no third-party requests), IT/EN
 data/partiti.js       party data + party colours, verbatim from your prototype
 data/logos.js         party symbols (WebP, base64) from your prototype
 data/content.js       Dati / Fonti / Metodo / Community copy, verbatim from your prototype
@@ -70,9 +68,9 @@ The build writes every section's content into the HTML (tools/prerender.mjs), pl
 Open Graph / Twitter tags, JSON-LD, sitemap and robots. The page title follows the section.
 
 ## Third-party
-Development and single-file versions: three@0.160.0 (jsDelivr) · gsap@3.12.5 (cdnjs) · Fraunces +
-Inter Tight (Google Fonts). The production build (`dist/site/`) self-hosts all of them.
-If a CDN fails, the site runs in 2D with the same content and navigation.
+Development and single-file versions load Fraunces + Inter Tight from Google Fonts. The production
+build (`dist/site/`) self-hosts them; the site makes no third-party requests until someone signs in
+with Google in Community.
 
 ## Community: Tema del giorno
 - Add one entry per day at the top of `data/topic.js` (date, area, title, summary, points, question,

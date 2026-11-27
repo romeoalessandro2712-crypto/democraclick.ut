@@ -48,7 +48,7 @@ export function fontiUI({ root, t, getLang, view, announce }) {
           <p>${esc(L(r.text))}${r.link ? ` <a href="${esc(r.link)}" target="_blank" rel="noopener noreferrer">${esc(t('reg.more'))}</a>` : ''}</p></li>`).join('')}</ol>
       </details>` + groups.map((g) => `
       <div class="src-group">
-        <h3 style="--ac:${g.party.color}">${g.party.logo ? `<img class="plogo xs" src="${g.party.logo}" alt="" width="64" height="64">` : ''}${esc(g.party.name)} <span class="tag">${esc(t('partiti.sources.year', { y: L(g.party.updated) }))}</span></h3>
+        <h2 style="--ac:${g.party.color}">${g.party.logo ? `<img class="plogo xs" src="${g.party.logo}" alt="" width="64" height="64">` : ''}${esc(g.party.name)} <span class="tag">${esc(t('partiti.sources.year', { y: L(g.party.updated) }))}</span></h2>
         <ul>${g.items.map((i) => `<li><button type="button" class="src-btn" data-src="${i}" aria-pressed="${open === i}"><span class="pub">${esc(SOURCES[i].publisher)}</span> ${esc(SOURCES[i].title)}</button></li>`).join('')}</ul>
       </div>`).join('');
   }
@@ -60,7 +60,7 @@ export function fontiUI({ root, t, getLang, view, announce }) {
     card.hidden = false;
     card.innerHTML = `
       <p class="eyebrow party-eyebrow" style="--ac:${s.party.color}" data-anim>${s.party.logo ? `<img class="plogo sm" src="${s.party.logo}" alt="" width="64" height="64">` : ''}${esc(s.party.name)} · ${open + 1} / ${SOURCES.length}</p>
-      <h3 id="src-card-title" tabindex="-1" data-anim>${esc(s.title)}</h3>
+      <h2 id="src-card-title" tabindex="-1" data-anim>${esc(s.title)}</h2>
       <dl class="meta" data-anim>
         <div><dt>${esc(t('fonti.publisher'))}</dt><dd>${esc(s.publisher)}</dd></div>
         <div><dt>${esc(t('fonti.year'))}</dt><dd>${esc(L(s.party.updated))}</dd></div>

@@ -44,7 +44,7 @@ export function metodoUI({ root, t, getLang, view, announce }) {
 
   function render() {
     list.innerHTML = STEPS.map((s, i) => `<li><button type="button" data-step="${i}" aria-label="${i + 1}. ${esc(L(s.title))}" ${i === step ? 'aria-current="step"' : ''}><span class="n" aria-hidden="true">${i + 1}</span><span>${esc(L(s.title))}</span></button></li>`).join('');
-    panel.innerHTML = `<h3 data-anim>${esc(L(STEPS[step].title))}</h3>${body()}`;
+    panel.innerHTML = `<h2 data-anim>${esc(L(STEPS[step].title))}</h2>${body()}`;
     panel.scrollTop = 0;
     prev.disabled = step === 0;
     next.disabled = step === STEPS.length - 1;

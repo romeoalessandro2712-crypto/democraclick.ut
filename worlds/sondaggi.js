@@ -130,7 +130,7 @@ export function sondaggiUI({ root, t, getLang, view, announce, tune }) {
     }).join('');
     const miss = r.missing.map((id) => INFO[id].label).join(', ');
     return `<li class="sim" data-anim>
-      <div class="sim-h"><h4 class="sim-t">${esc(L(sim.title))}</h4><b class="sim-v num">${n(r.v)}<small>%</small>${r.missing.length ? '<sup aria-hidden="true">*</sup>' : ''}</b></div>
+      <div class="sim-h"><h3 class="sim-t">${esc(L(sim.title))}</h3><b class="sim-v num">${n(r.v)}<small>%</small>${r.missing.length ? '<sup aria-hidden="true">*</sup>' : ''}</b></div>
       <div class="sim-bar" aria-hidden="true"><span class="fill${r.v >= LAW.bonusThreshold ? ' over' : ''}" style="width:${(Math.max(0, r.v) / max) * 100}%"></span><i style="left:${(LAW.bonusThreshold / max) * 100}%"></i></div>
       <p class="sim-parts">${sim.parts.map((p, i) => partChip(p, i === 0)).join('')}</p>
       <p class="sim-f">${esc(formula)} · ${esc(t('sv.indic'))}${r.missing.length ? ` · <span class="miss">* ${esc(t('sv.missing', { p: miss }))}</span>` : ''}</p>
@@ -144,14 +144,14 @@ export function sondaggiUI({ root, t, getLang, view, announce, tune }) {
     const others = OTHER_POLLS.map((o) => `<li><a href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">${esc(o.who)}</a>, ${esc(o.date)}: ${esc(L(BLOCS.cs.label))} ${n(o.cs)} · ${esc(cdName)} ${n(o.cd)}</li>`).join('');
     const clGap = r1(cl.pct - sumOf(cl.members));
     return `<section class="sv-sec" data-anim aria-labelledby="sv-coal-h">
-        <h3 id="sv-coal-h" class="sv-h">${esc(t('sv.coalTitle'))}</h3>
+        <h2 id="sv-coal-h" class="sv-h">${esc(t('sv.coalTitle'))}</h2>
         ${headToHead({ name: clName, short: clName, v: cl.pct, term: true }, { name: cdName, short: cdName, v: cd.pct })}
         <div id="cl-def" class="term-def" hidden><p>${esc(L(COALITIONS.def))}</p>
           <p class="fine">${esc(t('sv.clGap', { cl: n(cl.pct), sum: n(sumOf(cl.members)), d: n(clGap) }))}</p></div>
         <p class="fine">${esc(t('sv.read.blocs', { cl: n(cl.pct), cd: n(cd.pct), gap: n(Math.abs(cl.pct - cd.pct)), th: LAW.bonusThreshold }))}</p>
       </section>
       <section class="sv-sec" aria-labelledby="sv-sim-h">
-        <h3 id="sv-sim-h" class="sv-h" data-anim>${esc(t('sv.simTitle'))}</h3>
+        <h2 id="sv-sim-h" class="sv-h" data-anim>${esc(t('sv.simTitle'))}</h2>
         <p class="fine sim-note" data-anim>${esc(t('sv.simNote'))}</p>
         <ol class="simlist">${SIMS.map(simRow).join('')}</ol>
         <p class="fine" data-anim>${esc(t('sv.simScale', { th: LAW.bonusThreshold }))}</p>

@@ -1,8 +1,8 @@
 // build.mjs — production build → dist/site/ (upload that folder to your web server).
 //   npm install && npm run build
 // What it does:
-//   • bundles + minifies JS with code-splitting (the 3D layer and three.js load only when needed)
-//   • self-hosts three.js, GSAP and the two typefaces: the live site makes NO third-party requests
+//   • bundles + minifies JS
+//   • self-hosts the two typefaces: the live site makes NO third-party requests
 //   • writes each section's content into the HTML (tools/prerender.mjs) for search engines / no-JS
 //   • content-hashed file names, source maps, robots.txt, sitemap.xml, web manifest
 //   • _headers (Netlify / Cloudflare Pages) and .htaccess (Apache): CSP, security and cache headers
@@ -27,7 +27,7 @@ async function main() {
   await fs.mkdir(path.join(OUT, 'assets'), { recursive: true });
   await fs.mkdir(path.join(OUT, 'fonts'), { recursive: true });
 
-  // 1 · JavaScript: main entry + lazy chunks (scene.js, three.js, post-processing)
+  // 1 · JavaScript: main entry
   const js = await build({
     entryPoints: [path.join(ROOT, 'main.js')],
     bundle: true, splitting: true, format: 'esm', minify: true, sourcemap: true,
@@ -39,10 +39,6 @@ async function main() {
   if (!mainOut) throw new Error('main.js output not found');
   const mainFile = path.basename(mainOut);
 
-  // 2 · GSAP (UMD global, as in development)
-  const gsapSrc = await fs.readFile(pkgFile('gsap/dist/gsap.min.js'));
-  const gsapFile = `gsap-${hash(gsapSrc)}.min.js`;
-  await fs.writeFile(path.join(OUT, 'assets', gsapFile), gsapSrc);
 
   // 3 · Fonts (SIL Open Font License), Latin subsets only
   const fonts = [
@@ -79,7 +75,6 @@ async function main() {
     .replace('<link rel="stylesheet" href="styles.css">',
       fontFiles.filter((f) => f.style === 'normal').map((f) => `<link rel="preload" href="fonts/${f.name}" as="font" type="font/woff2" crossorigin>`).join('\n')
       + `\n<link rel="stylesheet" href="assets/${cssFile}">`)
-    .replace(/<script src="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/gsap\/[^"]+" defer><\/script>/, `<script src="assets/${gsapFile}" defer></script>`)
     .replace('<script type="module" src="main.js"></script>', `<link rel="modulepreload" href="assets/${mainFile}">\n<script type="module" src="assets/${mainFile}"></script>`);
   html = injectPrerender(html);
   if (/googleapis|gstatic|jsdelivr|cdnjs/.test(html)) throw new Error('index.html still references a CDN');

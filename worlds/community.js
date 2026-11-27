@@ -63,7 +63,7 @@ export function communityUI({ root, t, getLang, view, announce, tune }) {
   let loadState = endpoint ? 'idle' : 'off'; // off | idle | loading | ok | error
 
   function renderTopic() {
-    topicEl.innerHTML = topicHTML(topic, getLang(), { today: isToday(topic), h: 3, id: 'topic-title' });
+    topicEl.innerHTML = topicHTML(topic, getLang(), { today: isToday(topic), h: 2, id: 'topic-title' });
   }
 
   function renderInfo() {

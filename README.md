@@ -1,7 +1,9 @@
 # DemocraClick · L'Agorà
 
-Click-driven 3D civic site: seven worlds (Home, Partiti, Sondaggi, Dati, Fonti, Metodo, Community)
-in one WebGL scene, with a full 2D/no-JS version of the same content.
+Civic information site with a simple, familiar layout (like X or YouTube): a menu on the left,
+one reading column, highlights on the right; on phones a top bar and tabs at the bottom.
+Seven pages (Home, Partiti, Sondaggi, Community, Dati, Fonti, Metodo), no 3D and no decorative
+animation. Every page's text is also written into the HTML, so it reads without JavaScript.
 
 ## Publish (recommended)
 ```
@@ -9,8 +11,8 @@ npm install
 npm run build        # → dist/site/
 ```
 Upload the **contents of `dist/site/`** to your web root. That folder is the production site:
-- minified, code-split JS (the 3D layer and three.js load only when needed), source maps
-- three.js, GSAP and the fonts self-hosted: **no third-party requests** (better privacy and speed)
+- minified JS with source maps
+- the fonts self-hosted: **no third-party requests** (better privacy and speed)
 - every section's text written into the HTML for search engines, link previews, print and no-JS
 - `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, icons, `og-image.jpg` (link previews)
 - `_headers` (Netlify / Cloudflare Pages) and `.htaccess` (Apache): Content-Security-Policy,
@@ -20,7 +22,7 @@ Upload the **contents of `dist/site/`** to your web root. That folder is the pro
 Preview the build with its real headers: `npm run serve` → http://localhost:8080
 
 ## Other outputs
-- `dist/democraclick-agora.html`: everything in one file (loads three.js/GSAP/fonts from CDNs).
+- `dist/democraclick-agora.html`: everything in one file (loads the fonts from Google Fonts).
 - The un-built source (`index.html` + modules) also runs as-is from any static server.
 
 ## Day-to-day edits
@@ -37,8 +39,6 @@ Preview the build with its real headers: `npm run serve` → http://localhost:80
 - COMMUNITY: Google Client ID and posts API (`TUNE.community`), plus the privacy-page section on
   Google sign-in. Until then the section shows that discussion is not active. See INTEGRATION.md.
 - If your server serves `/privacy` (not `/privacy.html`), add a redirect.
-- Software-rendering fallback: devices that would draw 3D without a GPU get the 2D version.
-  To force 3D for testing: `localStorage.setItem('dc-3d', 'force')`.
 
 See `INTEGRATION.md` for hooks, data sources and what was deliberately left out.
 

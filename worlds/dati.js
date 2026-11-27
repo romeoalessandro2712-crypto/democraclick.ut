@@ -50,11 +50,25 @@ export function datiUI({ root, t, getLang, view, announce }) {
   const tot = [0, 0, 0, 0];
   GROUPS.forEach(([g]) => VOTES[g].forEach((n, i) => { tot[i] += n; }));
 
+  // flat seat chart: one dot per seat, as in a parliament diagram (decorative; the list below has the numbers)
+  const SEATS = buildSeats();
+  function hemicycle(kind) {
+    const R = 4.24 + 0.3; // outer radius + margin
+    const dots = SEATS.map((st) => {
+      const cx = (st.x + R) * 40, cy = 196 + st.z * 44;
+      const dim = kind === 'seats' && group && st.group !== group;
+      const cls = kind === 'vote' ? `v${st.vote}` : `g${st.group}`;
+      return `<circle class="${cls}${dim ? ' dim' : ''}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="7"/>`;
+    }).join('');
+    return `<svg class="hemi" viewBox="0 0 ${(2 * R * 40).toFixed(0)} 210" aria-hidden="true" focusable="false">${dots}</svg>`;
+  }
+
   function warn() { return `<div class="warn" data-anim><strong>${esc(L(C.warn.title))}</strong> ${esc(L(C.warn.body))}</div>`; }
 
   function seatsHTML() {
     const g0 = group && GROUPS.find((g) => g[0] === group);
     return `${warn()}
+      ${hemicycle('seats')}
       <p class="hint" data-anim>${g0 ? `<strong>${esc(L(g0[1]))}</strong> · ${g0[2]} / 100` : esc(L(C.hint))}</p>
       <div class="legend" data-anim role="group" aria-label="${esc(L(C.step1))}">
         ${GROUPS.map(([g, name, n]) => `<button type="button" class="lg" data-grp="${g}" aria-pressed="${group === g}"><i class="sw g${g}" aria-hidden="true"></i><span>${esc(L(name))}</span><b>${n}</b></button>`).join('')}
@@ -73,16 +87,16 @@ export function datiUI({ root, t, getLang, view, announce }) {
     return `${warn()}
       <div class="verd ${pass ? 'yes' : 'nope'}" data-anim><b>${esc(L(pass ? C.approved : C.rejected))}</b>
         <span>${tot[0]} ${esc(yes)}, ${tot[1]} ${esc(no)}. ${esc(L(C.passRule))}</span></div>
+      ${hemicycle('vote')}
       ${rows}
       <div class="vleg" data-anim>${C.vshort.map((v, i) => `<span><i class="s${i}" aria-hidden="true"></i>${esc(L(v))}</span>`).join('')}</div>
       <p class="fine" data-anim><strong>${esc(L(C.absNote.title))}</strong> ${esc(L(C.absNote.body))} <strong>${esc(L(C.missNote.title))}</strong> ${esc(L(C.missNote.body))}</p>
-      <p class="fine" data-anim>${esc(t('dati.height'))}</p>`;
+      <p class="fine" data-anim>${esc(t('dati.dotVote'))}</p>`;
   }
 
   function fixedHTML() {
     return `<div class="box" data-anim><strong>${esc(L(C.deputies.title))}</strong> ${esc(L(C.deputies.body))}</div>
-      <div class="box" data-anim><strong>${esc(L(C.senators.title))}</strong> ${esc(L(C.senators.body))}</div>
-      <p class="fine" data-anim>${esc(t('dati.perColumn'))}</p>`;
+      <div class="box" data-anim><strong>${esc(L(C.senators.title))}</strong> ${esc(L(C.senators.body))}</div>`;
   }
 
   // the law path and the data limits: your text, rendered once per language
