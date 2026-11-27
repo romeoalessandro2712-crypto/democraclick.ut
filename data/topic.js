@@ -9,6 +9,36 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-27-manovra-segnalati-condono',
+    date: '2026-11-27',
+    area: { it: 'Legge di bilancio', en: 'Budget law' },
+    title: {
+      it: 'Manovra, i gruppi indicano circa 700 emendamenti «segnalati»: tra questi le proposte sul condono edilizio',
+      en: 'Budget: parliamentary groups flag about 700 priority amendments, including proposals on a building amnesty',
+    },
+    summary: {
+      it: 'Secondo AGI, il 26 novembre i gruppi parlamentari hanno indicato poco più di 700 emendamenti «segnalati» alla legge di bilancio 2027, su cui lavorerà la commissione Bilancio della Camera. Secondo AGI, Fratelli d’Italia ha segnalato sei emendamenti sui condoni edilizi e la Lega uno che propone due anni per regolarizzare opere realizzate entro il 31 dicembre 2025 in aree vincolate. Secondo ANSA, il vicepremier Matteo Salvini (Lega) ha detto che la norma sul condono si sta costruendo con i comuni, con il principio del silenzio assenso. Secondo AGI, le opposizioni di centrosinistra hanno segnalato emendamenti comuni, tra cui due fondi per complessivi 4,9 miliardi di euro nel triennio 2027-2029.',
+      en: 'According to AGI, on 26 November the parliamentary groups flagged just over 700 priority amendments to the 2027 budget law, which the Chamber’s Budget Committee will work on. According to AGI, Fratelli d’Italia flagged six amendments on building amnesties and the Lega one proposing two years to regularise works built by 31 December 2025 in protected areas. According to ANSA, deputy prime minister Matteo Salvini (Lega) said the amnesty rule is being drafted with the municipalities, on the basis of tacit approval (silenzio assenso). According to AGI, the centre-left opposition flagged joint amendments, including two funds totalling 4.9 billion euros over 2027-2029.',
+    },
+    points: [
+      { it: 'Matteo Salvini (Lega): «La richiesta di sanatoria di centinaia di migliaia di immobili fermi anche da trent’anni arriva dai comuni» (ANSA).', en: 'Matteo Salvini (Lega): “the request to regularise hundreds of thousands of properties, some stuck for thirty years, comes from the municipalities” (ANSA).' },
+      { it: 'La presidente del Consiglio Giorgia Meloni: «c’è grande convergenza nella maggioranza»; «a un certo punto bisognerà tirare le somme» (ANSA).', en: 'Prime Minister Giorgia Meloni: “there is great convergence within the majority”; “at some point we will have to draw the line” (ANSA).' },
+      { it: 'Secondo AGI, tra le proposte di FdI c’è la sanatoria di opere minori, come portici, tettoie, balconi e logge, ultimate entro il 30 settembre 2025. Secondo ANSA, tra gli emendamenti di FdI non risulta quello sulla regolarizzazione di opere realizzate senza autorizzazione sismica.', en: 'According to AGI, FdI’s proposals include regularising minor works, such as porches, canopies, balconies and loggias, completed by 30 September 2025. According to ANSA, FdI’s amendments do not include the one on regularising works built without seismic authorisation.' },
+      { it: 'Elly Schlein, segretaria del PD: «Trovo incredibile che il governo stia parlando di condono dopo non aver fatto niente per quattro anni sul diritto alla casa» (Adnkronos, 25/11).', en: 'Elly Schlein, PD secretary: “I find it incredible that the government is talking about an amnesty after doing nothing for four years on the right to housing” (Adnkronos, 25/11).' },
+      { it: 'Secondo AGI, il PD chiede la gratuità dei libri di testo per le scuole primarie e secondarie.', en: 'According to AGI, the PD is pushing for free textbooks in primary and secondary schools.' },
+    ],
+    question: {
+      it: 'Secondo te, come si dovrebbero trattare le pratiche edilizie rimaste in sospeso da molti anni?',
+      en: 'In your view, how should building applications left pending for many years be handled?',
+    },
+    links: [
+      { label: { it: 'AGI: manovra, dai condoni alle pensioni: gli emendamenti segnalati (26/11)', en: 'AGI: budget, from amnesties to pensions: the flagged amendments (26/11, in Italian)' }, host: 'www.agi.it', url: 'https://www.agi.it/economia/news/2026-11-26/manovra-emendamenti-segnalati-40208038/' },
+      { label: { it: 'ANSA: Salvini, «in manovra una norma sul condono, la stiamo costruendo con i comuni» (26/11)', en: 'ANSA: Salvini, “an amnesty rule in the budget, we are drafting it with the municipalities” (26/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/26/salvini-in-manovra-una-norma-sul-condono-la-stiamo-costruendo-con-i-comuni_6c4a993a-9e13-463d-b930-9be3df31a000.html' },
+      { label: { it: 'Adnkronos: manovra, maggioranza al lavoro sul condono (25/11)', en: 'Adnkronos: budget, the majority works on the amnesty (25/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/economia/manovra-2027-condono-pensioni-spalmacrediti-ipotesi-governo_7DRQw8yvMpeqVKSdXfEIfp' },
+    ],
+    checked: '2026-11-27',
+  },
+  {
     id: '2026-11-26-manovra-vertice-superbonus',
     date: '2026-11-26',
     area: { it: 'Legge di bilancio', en: 'Budget law' },
