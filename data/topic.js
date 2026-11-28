@@ -9,6 +9,37 @@
 
 export const TOPICS = [
   {
+    id: '2026-11-28-decreto-scuola',
+    date: '2026-11-28',
+    area: { it: 'Scuola', en: 'Schools' },
+    title: {
+      it: 'Decreto scuola, via libera definitivo della Camera: tetto per gli alunni stranieri, libri digitali e un ordine del giorno sui libri di testo',
+      en: 'Schools decree gets final approval in the Chamber: cap on foreign pupils, digital textbooks and a motion on textbooks',
+    },
+    summary: {
+      it: 'Il 26 novembre la Camera ha approvato in via definitiva il disegno di legge di conversione del decreto-legge n. 170 del 30 settembre 2026, già approvato dal Senato, che riguarda l’avvio dell’anno scolastico 2026/2027, misure PNRR del ministero dell’Istruzione e del Merito, l’integrazione degli studenti stranieri, l’università e la ricerca. Secondo ANSA, i voti sono stati 142 sì, 112 no e 4 astenuti, e sul provvedimento il governo aveva posto la fiducia. Secondo ANSA, il decreto prevede tra l’altro un tetto per gli alunni stranieri che non conoscono l’italiano, il divieto del burqa a scuola e un prezzo dei libri di testo digitali pari al 50% di quelli cartacei. Secondo ANSA, è stato approvato anche un ordine del giorno di FdI, non vincolante, che chiede al governo di valutare un osservatorio sul pluralismo dei libri di testo.',
+      en: 'On 26 November the Chamber of Deputies gave final approval to the bill converting decree-law no. 170 of 30 September 2026, already passed by the Senate, which concerns the start of the 2026/2027 school year, PNRR measures of the Ministry of Education and Merit, the integration of foreign students, universities and research. According to ANSA, the vote was 142 in favour, 112 against and 4 abstentions, and the government had made it a confidence vote. According to ANSA, the decree includes a cap on foreign pupils who do not know Italian, a ban on the burqa at school and a price for digital textbooks equal to 50% of the printed ones. According to ANSA, a non-binding FdI motion (ordine del giorno) asking the government to consider an observatory on the pluralism of school textbooks was also approved.',
+    },
+    points: [
+      { it: 'Il ministro dell’Istruzione e del Merito Giuseppe Valditara: «Promuoviamo una vera integrazione degli studenti stranieri, fondata sulla conoscenza della lingua italiana» (ANSA, Adnkronos).', en: 'Education and Merit Minister Giuseppe Valditara: “We are promoting real integration of foreign students, based on knowledge of the Italian language” (ANSA, Adnkronos).' },
+      { it: 'Augusta Montaruli, vice capogruppo di FdI alla Camera: «fissiamo per legge il tetto del 30% di alunni stranieri per evitare le classi ghetto» (ANSA).', en: 'Augusta Montaruli, FdI deputy group leader in the Chamber: “we are setting by law the 30% cap on foreign pupils to avoid ghetto classes” (ANSA).' },
+      { it: 'Elly Schlein, segretaria del PD: «Alla scuola non servono tetti per cacciare i bambini stranieri, servono tetti che non cadano sulle teste degli alunni» (ANSA).', en: 'Elly Schlein, PD secretary: “Schools do not need caps to drive out foreign children, they need roofs that do not fall on pupils’ heads” (ANSA; in Italian “tetti” means both caps and roofs).' },
+      { it: 'Irene Manzi (PD), nella dichiarazione di voto: «Un decreto che divide bambine e bambini dentro le classi» (ANSA). Secondo Adnkronos, al voto finale le opposizioni hanno esposto il cartello «A Scuola nessuno è straniero».', en: 'Irene Manzi (PD), explaining her group’s vote: “A decree that divides girls and boys within classrooms” (ANSA). According to Adnkronos, at the final vote the opposition held up a sign reading “At school nobody is a foreigner”.' },
+      { it: 'Sull’ordine del giorno per l’osservatorio sui libri di testo, Simona Malpezzi (PD), secondo ANSA, parla di un tentativo di «minculpop»; per la Cisl Scuola (Ivana Barbacci) «La scelta dei libri rientra nella sfera dell’autonomia didattica e della libertà di insegnamento» (ANSA).', en: 'On the motion for a textbook observatory, Simona Malpezzi (PD), according to ANSA, speaks of an attempt at “minculpop” (the Fascist-era propaganda ministry); for the Cisl Scuola union (Ivana Barbacci) “the choice of books falls within teaching autonomy and freedom of teaching” (ANSA).' },
+    ],
+    question: {
+      it: 'Secondo te, come dovrebbe la scuola sostenere gli alunni che non conoscono ancora bene l’italiano?',
+      en: 'In your view, how should schools support pupils who do not yet know Italian well?',
+    },
+    links: [
+      { label: { it: 'Camera dei deputati: decreto scuola, approvazione definitiva (26/11)', en: 'Chamber of Deputies: schools decree, final approval (26/11, in Italian)' }, host: 'comunicazione.camera.it', url: 'https://comunicazione.camera.it/archivio-prima-pagina/19-64525' },
+      { label: { it: 'ANSA: la Camera approva il decreto scuola, 142 i sì, 112 i no (26/11)', en: 'ANSA: the Chamber approves the schools decree, 142 for, 112 against (26/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/26/la-camera-approva-il-decreto-scuola-142-i-si-112-i-no_4beb1e8e-8990-4b06-a469-8e026622062b.html' },
+      { label: { it: 'ANSA: ok alla proposta di FdI sull’osservatorio sui libri, il PD: «Minculpop» (26/11)', en: 'ANSA: FdI proposal on a textbook observatory approved, the PD: “Minculpop” (26/11, in Italian)' }, host: 'www.ansa.it', url: 'https://www.ansa.it/sito/notizie/politica/2026/11/26/ok-alla-proposta-di-fdi-sullosservatorio-sui-libri-il-pd-minculpop_3ac2f80e-b006-4c08-9aaa-8a16ecd965db.html' },
+      { label: { it: 'Adnkronos: dl Scuola, alla Camera il via libera definitivo (26/11)', en: 'Adnkronos: schools decree, final approval in the Chamber (26/11, in Italian)' }, host: 'www.adnkronos.com', url: 'https://www.adnkronos.com/politica/dl-scuola-legge-proteste-camera_52xM6ghDDo1DmZTygRbsH9' },
+    ],
+    checked: '2026-11-28',
+  },
+  {
     id: '2026-11-27-manovra-segnalati-condono',
     date: '2026-11-27',
     area: { it: 'Legge di bilancio', en: 'Budget law' },

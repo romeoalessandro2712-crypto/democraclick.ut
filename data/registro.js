@@ -4,6 +4,14 @@
 const REPORTS = 'https://github.com/romeoalessandro2712-crypto/democraclick.ut/blob/main/automation/reports/';
 export const REGISTRO = [
   {
+    date: '2026-11-28', kind: 'aggiornamento',
+    text: {
+      it: 'Nuovo tema del giorno sull’approvazione definitiva del decreto scuola alla Camera (26 novembre), dalle fonti Camera dei deputati, ANSA e Adnkronos del 26 novembre. Sondaggi invariati: la Supermedia del 26 novembre (AGI) resta non pubblicata in attesa di verifica.',
+      en: 'New topic of the day on the Chamber’s final approval of the schools decree (26 November), from Chamber of Deputies, ANSA and Adnkronos reports of 26 November. Polls unchanged: the 26 November Supermedia (AGI) is still not published pending verification.',
+    },
+    link: `${REPORTS}2026-11-28.md`,
+  },
+  {
     date: '2026-11-27', kind: 'aggiornamento',
     text: {
       it: 'Nuovo tema del giorno sugli emendamenti «segnalati» alla legge di bilancio 2027 e sulle proposte di condono edilizio, dalle fonti AGI e ANSA del 26 novembre e Adnkronos del 25 novembre. Sondaggi invariati: la Supermedia del 26 novembre (AGI) non è stata pubblicata in attesa di verifica.',
